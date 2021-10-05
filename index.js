@@ -27,4 +27,4 @@ app.get('/:slug',(req,res)=>{
     res.send(req.params.slug);
 })
 
-app.listen(5050, ()=>{console.log('Server Runing...')})
+app.listen(8888, ()=>{console.log('Server Runing...')})
