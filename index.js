@@ -27,4 +27,8 @@ app.get('/:slug',(req,res)=>{
     res.send(req.params.slug);
 })
 
-app.listen(8888, ()=>{console.log('Server Runing...')})
+const port = 8888;
+app.listen(port, ()=>{
+    console.log("Server Runing...");
+    console.log("View project in: http://localhost:"+ port +"/");
+})
