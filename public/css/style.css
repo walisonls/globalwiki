@@ -7,6 +7,7 @@
 header {
     padding: 8px 0;
     background-color: #0aacdc;
+    text-align: center;
 }
 
 .center {
@@ -14,6 +15,7 @@ header {
     margin: 0 auto;
     padding: 0 2%;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .logo {
@@ -115,6 +117,7 @@ section.outras-noticias {
 }
 section.outras-noticias h2 {
     font-size: 2.5rem;
+    margin-bottom: 20px;
 }
 .ultimas {
     width: 60%;
@@ -165,12 +168,12 @@ section.outras-noticias h2 {
     line-height: 56px;
     text-align: center;
     font-size: 18px;
-}.box-ultima-single a:hover {
-    
 }
 
 .mais-lidas {
     width: 40%;
+    height: 100%;
+    background-color: #fff;
 }
 .mais-lidas > h3 {
     background-color: #3F51B5;
@@ -180,4 +183,68 @@ section.outras-noticias h2 {
     padding: 10px 8px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+}
+.mais-lidas-noticias {
+    display: flex;
+    flex-direction: column;
+}
+.mais-lida-noticia-single {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    grid-template-rows: repeat(2, auto);
+    grid-template-areas: "image title" "image description" "image more";
+    padding: 10px 30px;
+}
+.mais-lida-noticia-single img {
+    border-radius: 5px;
+    width: 100%;
+    height: initial;
+    aspect-ratio: 1;
+    grid-area: image;
+}
+.mais-lida-noticia-single h4 {
+    grid-area: title;
+    letter-spacing: 3.2px;
+}
+.mais-lida-noticia-single p {
+    grid-area: description;
+    font-size: 14px;
+    text-align: justify;
+    margin-left: 10px;
+}
+.mais-lida-noticia-single a {
+    grid-area: more;
+    font-size: 14px;
+    text-decoration: none;
+    text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    .logo, .form-busca {
+        width: 100%;
+    }
+    .form-busca {
+        text-align: center;
+    }
+    .title-destaque-descricao h2 {
+        font-size: 34px;
+        margin: 20px 0;
+    }
+    .mais-lidas, .ultimas {
+        width: 100%;
+        margin-top: 30px;
+    }
+    .box-ultima-single {
+        width: 100%;
+        margin-right: 0;
+        margin-top: 30px;
+    }
+    section.outras-noticias {
+        display: flex;
+        flex-direction: column;
+    }
+    section.outras-noticias .ultimas {
+        display: flex;
+        flex-direction: column;
+    }
 }
