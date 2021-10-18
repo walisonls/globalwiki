@@ -218,6 +218,13 @@ section.outras-noticias h2 {
     text-decoration: none;
     text-align: left;
 }
+footer {
+    max-width: 20px 0;
+    background-color: #0AACDC;
+    text-align: center;
+    color: white;
+    padding: 20px 0;
+}
 
 @media screen and (max-width: 768px) {
     .logo, .form-busca {
