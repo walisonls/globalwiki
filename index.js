@@ -20,11 +20,12 @@ app.get('/',(req,res)=>{
     if(req.query.busca == null){
         res.render('home',{});
     }else{
-        res.send(req.query.busca)
+        res.render('busca',{});
     }
 })
 app.get('/:slug',(req,res)=>{
-    res.send(req.params.slug);
+    // res.send(req.params.slug);
+    res.render('single',{});
 })
 
 const port = 8888;

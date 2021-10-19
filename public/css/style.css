@@ -19,10 +19,15 @@ header {
 }
 
 .logo {
+    text-align: left;
     width: 50%;
 }
 .logo h2 {
     color: white;
+}
+.logo a {
+    color: white;
+    text-decoration: none;
 }
 .form-busca {
     width: 50%;
@@ -205,6 +210,7 @@ section.outras-noticias h2 {
 .mais-lida-noticia-single h4 {
     grid-area: title;
     letter-spacing: 3.2px;
+    text-align: center;
 }
 .mais-lida-noticia-single p {
     grid-area: description;
@@ -230,6 +236,9 @@ footer {
     .logo, .form-busca {
         width: 100%;
     }
+    .logo {
+        text-align: center;
+    }
     .form-busca {
         text-align: center;
     }
@@ -254,4 +263,46 @@ footer {
         display: flex;
         flex-direction: column;
     }
+}
+/*single.html*/
+section.noticia {
+    padding: 20px 0;
+    background-color: #EAEAEA;
+}
+.noticia-single {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 58%;
+    margin-right: 2%;
+}
+.noticia-single h2 {
+    color: #303336;
+    font-size: 42px;
+    margin: 10px 0;
+}
+.noticia-single span {
+    letter-spacing: 2.6px;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: #858585;
+    font-weight: bold;
+}
+.noticia-single p {
+    color: #7B8591;
+    font-size: 15px;
+    line-height: 26px;
+    margin: 15px 0;
+}
+.noticia-single h3 {
+    color: #7B8591;
+    font-size: 33px;
+    margin: 10px 0;
+}
+@media screen and (max-width: 768px) {
+    .noticia-single {
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+}
 }
