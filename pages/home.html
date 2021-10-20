@@ -7,9 +7,9 @@
           <div class="overlay-destaque"></div>
           <div class="title-destaque-descricao">
             <h2><%= posts[0].titulo %></h2>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+            <p><%- posts[0].miniDescricao %>...</p>
           </div> <!-- itle-destaque-descricao -->
-          <img src="/public/img/landiscape.jpg" alt="Destaque">
+          <img src="<%= posts[0].image %>" alt="Destaque">
         </div><!-- img-destaque -->
       </div><!-- center -->
     </section><!-- noticia-destaque -->
@@ -19,53 +19,32 @@
         <h2>Útimas Publicações</h2>
         <div class="center">
           <div class="ultimas">
-            <div class="box-ultima-single">
-              <img src="/public//img/praia-grande.jpg" alt="">
-              <div class="conteudo-noticia-single">
-                <h3>Natureza e Geral</h3>
-                <h2>Aproveite a vida ao lado da natureza</h2>
-                <p>As praias e os parques são ótimos lugares para se aproveitar um tempo livre de descanso, olhar para as arvores ou os passaros e deixar a natureza fluir pela sua mante.</p>
-                <a href="/encarar-o-surf">Learn more...</a>
-              </div>
-            </div><!-- box-ultima-single -->
-            <div class="box-ultima-single">
-              <img src="/public//img/praia-grande.jpg" alt="">
-              <div class="conteudo-noticia-single">
-                <h3>Natureza e Geral</h3>
-                <h2>Aproveite a vida ao lado da natureza</h2>
-                <p>As praias e os parques são ótimos lugares para se aproveitar um tempo livre de descanso, olhar para as arvores ou os passaros e deixar a natureza fluir pela sua mante.</p>
-                <a href="/encarar-o-surf">Learn more...</a>
-              </div>
-            </div><!-- box-ultima-single -->
+
+            <% for(let i = 1; i < posts.length; i++) { %>
+              <div class="box-ultima-single">
+                <img src="<%= posts[i].image %>" alt="">
+                <div class="conteudo-noticia-single">
+                  <h3><%= posts[i].categoria %></h3>
+                  <h2><%= posts[i].titulo %></h2>
+                  <p><%- posts[i].miniDescricao %>...</p>
+                  <a href="/<%= posts[i].slug %>">Learn more...</a>
+                </div>
+              </div><!-- box-ultima-single -->
+            <% } %>
+
           </div><!-- ultimas -->
           <div class="mais-lidas">
             <h3>Mais lidas</h3>
             <div class="mais-lidas-noticias">
 
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
+              <% for(let i = 1; i < posts.length; i++) { %>
+                <div class="mais-lida-noticia-single">
+                  <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
+                    <h4>Natureza</h4>
+                    <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
+                </div><!-- mais-lida-noticia-single -->
+              <% } %>
 
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-                  
-              </div><!-- mais-lida-noticia-single -->
-              <!---->
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
-              <!---->
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" alt="image">
-                <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
               <!---->
             </div><!--mais-lidas-noticias-->
           </div><!-- mais-lidas -->
