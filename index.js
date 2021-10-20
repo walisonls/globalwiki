@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 
+const Posts = require('./Posts')
+
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -29,6 +31,9 @@ app.set('views', path.join(__dirname, '/pages'));
 app.get('/',(req,res)=>{
 
     if(req.query.busca == null){
+        Posts.find({}).sort({'_id':-1}).exec(function(err,posts){
+            console.log(posts[0])
+        })
         res.render('home',{});
     }else{
         res.render('busca',{});
