@@ -33,8 +33,8 @@ app.get('/',(req,res)=>{
     if(req.query.busca == null){
         Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
             console.log(posts[0]);
+            res.render("home", {posts:posts});
         })
-        res.render('home',{});
     }else{
         res.render('busca',{});
     }
