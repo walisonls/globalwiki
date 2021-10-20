@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 
-const Posts = require('./Posts')
+const Posts = require('./Posts.js')
 
 
 app.use(express.json());
@@ -13,7 +13,7 @@ app.use(express.urlencoded({
 
 mongoose
   .connect(
-    "mongodb+srv://root:Ez10xL59glHFmNcK@cluster0.7fzjz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "mongodb+srv://root:Ez10xL59glHFmNcK@cluster0.7fzjz.mongodb.net/posts?retryWrites=true&w=majority",
     { useNewUrlParser: true, useUnifiedTopology: true }
   )
   .then(function () {
@@ -31,14 +31,14 @@ app.set('views', path.join(__dirname, '/pages'));
 app.get('/',(req,res)=>{
 
     if(req.query.busca == null){
-        Posts.find({}).sort({'_id':-1}).exec(function(err,posts){
-            console.log(posts[0])
+        Posts.find({}).sort({'_id': -1}).exec(function(err,posts){
+            console.log(posts[0]);
         })
         res.render('home',{});
     }else{
         res.render('busca',{});
     }
-})
+})//render home
 app.get('/:slug',(req,res)=>{
     // res.send(req.params.slug);
     res.render('single',{});

@@ -7,7 +7,7 @@ var postSchema = new Schema({
     categoria:String,
     conteudo:String,
     slug:String,
-},{collation:'posts'})
+},{collection:'posts'})
 
 var Posts = mongoose.model("Posts",postSchema);
 
