@@ -6,34 +6,17 @@
         <h2>Busca:</h2>
         <div class="center">
           <div style="width: 100%;" class="mais-lidas">
-            <h3>33 Resultados</h3>
+            <h3><%= contagem %> Resultados</h3>
             <div class="mais-lidas-noticias">
 
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
+              <% for(let i = 0; i < posts.length; i++) { %>
+                <div class="mais-lida-noticia-single">
+                  <img src="<%= posts[i].image %>" height="140" width="140px" alt="image">
+                    <h4><%= posts[i].categoria %></h4>
+                    <p><%= posts[i].conteudo %> <a href="<%= posts[i].slug %>"> Learn more...</a></p>
+                </div><!-- mais-lida-noticia-single -->
+              <%}%>
 
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-                  
-              </div><!-- mais-lida-noticia-single -->
-              <!---->
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" height="140" width="140px" alt="image">
-                  <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
-              <!---->
-              <div class="mais-lida-noticia-single">
-                <img src="/public/img/img-01.jpg" alt="image">
-                <h4>Natureza</h4>
-                  <p>Boku no hero academic terá nova temporada lnaçada proximo ano, podendo ser atrasada devidos a pandemia. <a href="/natureza"> Learn more...</a></p>
-              </div><!-- mais-lida-noticia-single -->
-              <!---->
             </div><!--mais-lidas-noticias-->
           </div><!-- mais-lidas -->
         </div><!-- center -->

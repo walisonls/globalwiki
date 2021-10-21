@@ -46,7 +46,11 @@ app.get('/',(req,res)=>{
             res.render("home", {posts:posts});
         })
     }else{
-        res.render('busca',{});
+
+      Posts.find({titulo: {$regex: req.query.busca,$options:"i"}},function(err,posts){
+        console.log(posts)
+        res.render("busca", {posts:posts, contagem:posts.length});
+      })
     }
 })//render home
 app.get('/:slug',(req,res)=>{
