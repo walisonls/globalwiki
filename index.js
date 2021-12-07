@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
 
+var session = require("express-session");
+
 const Posts = require('./Posts.js')
 
 
@@ -10,6 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({
     extended: true
 }));
+
+
+app.use(session({secret: "keyboard cat", cookie: { maxAge: 60000 }}));
+
 
 mongoose
   .connect(
@@ -61,6 +67,17 @@ app.get('/:slug',(req,res)=>{
       res.render("single", {noticia:resposta});
     })
 })
+
+
+app.get('/admin/login',(req, res)=>{
+  if(req.session.login == null){
+    req.session.login = "Guilherme"
+      res.send("Sua seção foi criada!");
+  }else{
+    res.send(req.session.login)
+  }
+})
+
 
 const port = 8888;
 app.listen(port, ()=>{
