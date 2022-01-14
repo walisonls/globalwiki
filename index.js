@@ -70,13 +70,20 @@ app.get('/:slug',(req,res)=>{
 
 var usuarios = [
     {
-        login: "Guilherme",
+        login: "guilherme",
         password: "123456",
     },
 ];
 
 app.post('/admin/login',(req, res)=>{
-  console.log(req.body.login)
+  usuarios.map(function(val){
+    if(val.login == req.body.login && val.password == req.body.password){
+      req.session.login = "guilherme";
+    }
+  })
+
+  res.redirect('/admin/login');
+
 })
 
 app.get('/admin/login',(req, res)=>{
