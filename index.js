@@ -68,13 +68,22 @@ app.get('/:slug',(req,res)=>{
     })
 })
 
+var usuarios = [
+    {
+        login: "Guilherme",
+        password: "123456",
+    },
+];
+
+app.post('/admin/login',(req, res)=>{
+  console.log(req.body.login)
+})
 
 app.get('/admin/login',(req, res)=>{
   if(req.session.login == null){
-    req.session.login = "Guilherme"
-      res.send("Sua seção foi criada!");
+    res.render('admin-login')
   }else{
-    res.send(req.session.login)
+    res.render('admin-panel');
   }
 })
 
