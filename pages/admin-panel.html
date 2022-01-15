@@ -6,8 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel do admin - GlobalWiki</title>
     <link rel="icon" href="/public/img/icon.png">
+    <link rel="stylesheet" href="/public/css/panel.css">
 </head>
 <body>
-    <h1>Apenas um show</h1>
+    <div class="header-panel">
+        <h2>Cadastro Notícias</h2>
+    </div>
+    <form action="/admin/cadastro" method="post">
+        <input type="text" name="titulo-noticia" placeholder="titulo da noticia">
+        <input type="text" name="url-imagem" placeholder="link da imagem da noticia">
+        <textarea name="noticia" placeholder="noticia..."></textarea>
+        <input type="submit" name="acao" value="Cadastrar!">
+    </form>
+    <div class="header-panel">
+        <h2>Listando noticias</h2>
+    </div>
+    <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; box-sizing: border-box; padding: 10px 40px; display: flex; justify-content: space-between;" class="noticias-single">
+        <p>Titulo noticia: Minha noticia</p>
+        <a href="/admin/deletar/10">(x)</a>
+    </div>
 </body>
 </html>

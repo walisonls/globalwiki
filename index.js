@@ -86,12 +86,21 @@ app.post('/admin/login',(req, res)=>{
 
 })
 
+app.post('/admin/cadastro',(req, res)=>{
+  //proxima aula, inserir no banco de dados
+  res.send('cadastrado com sucesso')
+})
+
 app.get('/admin/login',(req, res)=>{
   if(req.session.login == null){
     res.render('admin-login')
   }else{
     res.render('admin-panel');
   }
+})
+
+app.get('/admin/deletar/:id',(req, res)=>{
+  res.send("deletado a noticia com id" + req.params.id)
 })
 
 
