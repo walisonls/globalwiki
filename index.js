@@ -49,13 +49,14 @@ app.get("/", (req, res) => {
                         categoria: val.categoria,
                     };
                 });
-                res.render("home", { posts: posts });
+                res.render("home", { posts: posts});
             });
     } else {
         Posts.find(
             { titulo: { $regex: req.query.busca, $options: "i" } },
             function (err, posts) {
-                console.log(posts);
+                //console.log(posts);
+
                 res.render("busca", { posts: posts, contagem: posts.length });
             }
         );
@@ -120,12 +121,27 @@ app.get("/admin/login", (req, res) => {
     if (req.session.login == null) {
         res.render("admin-login");
     } else {
-        res.render("admin-panel");
+        Posts.find({})
+            .sort({ _id: -1 })
+            .exec(function (err, posts) {
+                //console.log(posts[0]);
+                posts = posts.map(function (val) {
+                    return {
+                        titulo: val.titulo,
+                        conteudo: val.conteudo,
+                        miniDescricao: val.conteudo.substr(0, 100),
+                        image: val.image,
+                        slug: val.slug,
+                        categoria: val.categoria,
+                    };
+                });
+                res.render("admin-panel",{posts:posts});
+            });
     }
 });
 
 app.get("/admin/deletar/:id", (req, res) => {
-    res.send("deletado a noticia com id" + req.params.id);
+        res.send("deletado a noticia com id" + req.params.id);
 });
 
 const port = 8888;
@@ -133,3 +149,5 @@ app.listen(port, () => {
     console.log("Server Runing...");
     console.log("View project in: http://localhost:" + port + "/");
 });
+
+//problema ao indentificar o id do posts para deleta-lo

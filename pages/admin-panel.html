@@ -20,12 +20,16 @@
         <input type="submit" name="acao" value="Cadastrar!">
     </form>
     <br/><br/>
+
     <div class="header-panel">
         <h2>Listando noticias</h2>
     </div>
-    <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; box-sizing: border-box; padding: 10px 40px; display: flex; justify-content: space-between;" class="noticias-single">
-        <p>Titulo noticia: Minha noticia</p>
-        <a href="/admin/deletar/10">(x)</a>
-    </div>
+
+    <% for(let i = 1; i < posts.length; i++) { %>
+        <div style="margin-top: 20px; border-bottom: 2px dashed #ccc; box-sizing: border-box; padding: 10px 40px; display: flex; justify-content: space-between;" class="noticias-single">
+            <p><%= posts[i].titulo %></p>
+            <a href="/admin/deletar/<%= posts[i].titulo %>">(x)</a>
+        </div>
+    <% } %>
 </body>
 </html>
